@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DCp-Fp-ZDm">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Group2_W2020_MAD3115_FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5ra-sU-p0V">
+                                <rect key="frame" x="87" y="111" width="200" height="32"/>
+                                <segments>
+                                    <segment title="Persons"/>
+                                    <segment title="Vehicles"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segBaseValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="xkB-Wq-yrA"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YVQ-5m-Vow">
+                                <rect key="frame" x="16" y="212" width="342" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="oNl-SU-BTg">
+                                <rect key="frame" x="37" y="160" width="300" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1bA-1h-a3J"/>
+                                </constraints>
+                                <segments>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5ra-sU-p0V" firstAttribute="leading" secondItem="Ls3-19-K1I" secondAttribute="leading" constant="87" id="9T4-Q3-ELj"/>
+                            <constraint firstItem="Ls3-19-K1I" firstAttribute="trailing" secondItem="5ra-sU-p0V" secondAttribute="trailing" constant="88" id="BTU-A4-Ioa"/>
+                            <constraint firstItem="oNl-SU-BTg" firstAttribute="top" secondItem="5ra-sU-p0V" secondAttribute="bottom" constant="18" id="EpO-gv-CpM"/>
+                            <constraint firstItem="oNl-SU-BTg" firstAttribute="leading" secondItem="Ls3-19-K1I" secondAttribute="leading" constant="37" id="Vhy-sE-v2e"/>
+                            <constraint firstItem="YVQ-5m-Vow" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="es2-gt-Ovd"/>
+                            <constraint firstItem="5ra-sU-p0V" firstAttribute="top" secondItem="Ls3-19-K1I" secondAttribute="top" constant="23" id="hM7-hN-hwo"/>
+                            <constraint firstItem="YVQ-5m-Vow" firstAttribute="top" secondItem="oNl-SU-BTg" secondAttribute="bottom" constant="22" id="ozQ-z7-avI"/>
+                            <constraint firstItem="YVQ-5m-Vow" firstAttribute="bottom" secondItem="Ls3-19-K1I" secondAttribute="bottom" id="p5x-Nt-9bY"/>
+                            <constraint firstItem="oNl-SU-BTg" firstAttribute="centerX" secondItem="YVQ-5m-Vow" secondAttribute="centerX" id="tiM-Qt-XbR"/>
+                            <constraint firstItem="oNl-SU-BTg" firstAttribute="centerX" secondItem="5ra-sU-p0V" secondAttribute="centerX" id="veJ-SL-sPB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ls3-19-K1I"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="vg1-9F-scX"/>
+                    <connections>
+                        <outlet property="segPersonClass" destination="oNl-SU-BTg" id="API-fE-pvS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080.8" y="126.35467980295567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k1F-gd-GgS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DCp-Fp-ZDm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xy5-2i-JFr">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mlj-cC-MRd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2z-vD-dPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="126.35467980295567"/>
+        </scene>
+    </scenes>
+</document>

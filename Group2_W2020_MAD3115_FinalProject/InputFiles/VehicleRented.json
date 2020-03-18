@@ -1,0 +1,22 @@
+[
+    {
+        "customerId":2,
+        "startDate":"01/01/2020",
+        "endDate":"10/01/2020",
+        "noOfKmDriven":100,
+        "vehicleRented":"dvwdsvwvsdv"
+    },
+    {
+        "customerId":3,
+        "startDate":"10/01/2020",
+        "endDate":"15/01/2020",
+        "noOfKmDriven":50,
+        "vehicleRented":"WDDGF4HB4CA873474"
+    },{
+        "customerId":4,
+        "startDate":"20/01/2020",
+        "endDate":"30/01/2020",
+        "noOfKmDriven":200,
+        "vehicleRented":"1C4SDHCT5CC309581"
+    }
+]

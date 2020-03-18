@@ -1,0 +1,28 @@
+[{
+        "ownerId": 1,
+        "vehicles": [
+            "WAUSFAFL3AA302549",
+            "WAUML64B44N898955",
+            "WAUNF78P78A948204"
+        ]
+    },
+    {
+        "ownerId": 2,
+        "vehicles": [
+           "3VW467AT3CM913089",
+            "WAUBGAFC5CN462568"
+        ]
+    },
+    {
+        "ownerId": 3,
+        "vehicles": [
+           "WDDGF4HB4CA873474",
+            "1G4GG5G31CF022576",
+            "1C4SDHCT5CC309581"
+        ]
+    },
+    {
+        "ownerId": 4,
+        "vehicles": ["vskukvbsjbsb"]
+    }
+]
