@@ -76,6 +76,68 @@ extension DataRepo{  //Part of DataRepo Class to manage customers
         }
     }
     
+    func readVehiclesRented() {
+        let readFileInstance = ReadFile.getInsatnce();
+        
+        do {
+            let json = try readFileInstance.readJSONFile(fileName: "VehicleRented")
+
+            if let vehiclesRented = json as? [Any]{
+                
+                for vehicleRented in vehiclesRented {
+                    
+                    let vr = vehicleRented as! [String:Any];
+                    
+                    if let tempCustomer = CustomersDT[vr["customerId"] as! Int]{
+                        
+                        let tempVehicle:Vehicle;
+                        
+                        if let tv = CarsDT[vr["vehicleRented"] as! String]{
+                            tempVehicle = tv;
+                        }
+                        else if let tv = MotorcyclesDT[vr["vehicleRented"] as! String]{
+                            tempVehicle = tv;
+                        }
+                        else if let tv = BusesDT[vr["vehicleRented"] as! String]{
+                            tempVehicle = tv;
+                        }
+                        else{
+                            print("Vehicle with VIN:- \"\(vr["vehicleRented"] as! String)\" not found while parsing vehicle rented")
+                            continue;
+                        }
+                        
+                        guard let startDate = Date.from(date: vr["startDate"] as! String) else {
+                            return;
+                        }
+                        
+                        guard let endDate = Date.from(date: vr["endDate"] as! String) else {
+                            return;
+                        }
+                        
+                        let tempObj = VehicleRent(startDate: startDate, endDate: endDate, noOfKmDriven: vr["noOfKmDriven"] as! Int, vehicleRented: tempVehicle);
+                        
+                        tempCustomer.addRentedVehicle(tempVehicle: tempObj);
+                    }
+                    else{
+                        print("Customer with id:- \(vr["customerId"] as! Int) not found while parsing owner vehicles rented")
+                    }
+                }
+            }
+        }
+        catch FileExceptions.fileNotFound{
+            print("File not found")
+        }
+        catch FileExceptions.dataReadingError {
+            print("Error while reading data from file");
+        }
+        catch FileExceptions.errorPasingToJSON{
+            print("Error while parsing data to json")
+        }
+        catch {
+            print("Invalid Error")
+        }
+    }
+    
     func getAllCustomers() -> [Customer] {
         return Array(self.CustomersDT.values);
     }

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instance.readBusesToDictonary()
         instance.readMotocyclesToDictonary()
         instance.readCarsToDictonary()
+        instance.readVehiclesRented();
         return true
     }
 
