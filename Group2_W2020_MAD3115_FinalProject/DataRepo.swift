@@ -9,6 +9,7 @@
 import Foundation
 
 class DataRepo {
+    
     private static let instance = DataRepo()
     private var CustomersDT = [Int: Customer]()
     private var ownersDT = [Int : Owner]()
@@ -74,6 +75,11 @@ extension DataRepo{  //Part of DataRepo Class to manage customers
         catch {
             print("Invalid Error")
         }
+    }
+    
+    func addCustomer(cust:Customer) {
+        self.CustomersDT.updateValue(cust, forKey: cust.id);
+        
     }
     
     func readVehiclesRented() {
@@ -198,6 +204,60 @@ extension DataRepo{  //Part of DataRepo Class to manage owners
         }
     }
     
+    func addOwener(owner:Owner) {
+        self.ownersDT.updateValue(owner, forKey: owner.id)
+    }
+    
+    func readOwnerVehicles()  {
+        let readFileInstance = ReadFile.getInsatnce();
+        
+        do {
+            let json = try readFileInstance.readJSONFile(fileName: "OwnerVehicles")
+
+            if let ownerVehicles = json as? [Any]{
+                
+                for ownerVehicle in ownerVehicles {
+                    
+                    let ov = ownerVehicle as! [String:Any];
+                    
+                    if let tempOwner = self.ownersDT[ov["ownerId"] as! Int]{
+                        let vehicles = ov["vehicles"] as! [String];
+                        
+                        for vehicle in vehicles
+                        {
+                            if let tempvehicle = self.CarsDT[vehicle]{
+                                tempOwner.addVehicle(vehicle: tempvehicle);
+                            }
+                            else if let tempvehicle = self.MotorcyclesDT[vehicle]{
+                                tempOwner.addVehicle(vehicle: tempvehicle);
+                            }
+                            else if let tempvehicle = self.BusesDT[vehicle]{
+                                tempOwner.addVehicle(vehicle: tempvehicle);
+                            }
+                            else{
+                                print("Vehicle with VIN:- \"\(vehicle)\" not found while parsing owner vehicles")
+                            }
+                        }
+                    }
+                    else{
+                        print("Owner with id:- \(ov["ownerId"] as! Int) not found while parsing owner vehicles")
+                    }
+                }
+            }
+        }
+        catch FileExceptions.fileNotFound{
+            print("File not found")
+        }
+        catch FileExceptions.dataReadingError {
+            print("Error while reading data from file");
+        }
+        catch FileExceptions.errorPasingToJSON{
+            print("Error while parsing data to json")
+        }
+        catch {
+            print("Invalid Error")
+        }
+    }
     
     func getAllOwners() -> [Owner] {
         return Array(self.ownersDT.values);
@@ -258,6 +318,9 @@ extension DataRepo{   //Part of DataRepo Class to manage drivers
         }
     }
     
+    func addDriver(driver:Driver) {
+        self.DriversDT.updateValue(driver, forKey: driver.age);
+    }
     
     func getAllDrivers() -> [Driver] {
         return Array(self.DriversDT.values);

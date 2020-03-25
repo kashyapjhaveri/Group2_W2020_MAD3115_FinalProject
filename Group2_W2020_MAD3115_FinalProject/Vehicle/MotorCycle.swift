@@ -50,6 +50,14 @@ class MotorCycle : Vehicle
         self.insuranceProviderName = insuranceProviderName;
     }
     
+    func getContentTitles() -> [String] {
+        return ["VIN","Description","Manufacturer","Self Drive?","Insured?","No of seat","Fuel","Base rate","Rate/Km","Vehicle Type","Max Top Speed","Milage"]
+    }
+    
+    func getContentToDisplay() -> [String] {
+        return [self.vehicleIdentificationNumber,self.vehicleDescription,self.vehicleManufacturerName,"\(self.isSelfDrive)","\(self.isInsured)","\(self.noOfSeat)","\(self.fuelType)",self.baseRate.rawValue.formattedCurrency(),self.ratePerKm.rawValue.formattedCurrency(),self.vehicleType,"\(self.maxTopSpeed)","\(self.mileage)"]
+    }
+    
     func Display()
     {
         print("\tVehicle Identification Number : \(self.vehicleIdentificationNumber)")

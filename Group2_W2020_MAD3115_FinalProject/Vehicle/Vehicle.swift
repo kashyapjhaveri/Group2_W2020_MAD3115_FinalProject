@@ -25,6 +25,9 @@ protocol Vehicle : IDisplay
     var vehicleType : String {get set}
         
     func Display()
-
+    
+    func getContentTitles() -> [String]
+    
+    func getContentToDisplay() -> [String]
 }
 

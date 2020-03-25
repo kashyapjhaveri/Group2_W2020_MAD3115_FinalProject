@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0EE162242A98AA00019A52 /* addNewVehicleRentPickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EE161242A98AA00019A52 /* addNewVehicleRentPickerViewTableViewCell.swift */; };
+		9B3ECA97242553C2002DA852 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3ECA96242553C2002DA852 /* UIAlertController+Extension.swift */; };
+		9B3ECA99242557F4002DA852 /* AddNewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3ECA98242557F4002DA852 /* AddNewPersonViewController.swift */; };
+		9B3ECA9B2425597C002DA852 /* addNewPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3ECA9A2425597C002DA852 /* addNewPersonTableViewCell.swift */; };
+		9B50FA6A2423FAF20047E1A1 /* dependentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B50FA692423FAF20047E1A1 /* dependentDetailsViewController.swift */; };
+		9B581DD12426820900160033 /* addNewPersonDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B581DD02426820900160033 /* addNewPersonDateTableViewCell.swift */; };
+		9B581DD3242687F100160033 /* addNewPersonPickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B581DD2242687F100160033 /* addNewPersonPickerViewTableViewCell.swift */; };
 		9B677DD924215F5C008E3F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B677DD824215F5C008E3F3C /* AppDelegate.swift */; };
 		9B677DDB24215F5C008E3F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B677DDA24215F5C008E3F3C /* SceneDelegate.swift */; };
 		9B677DDD24215F5C008E3F3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B677DDC24215F5C008E3F3C /* HomeViewController.swift */; };
 		9B677DE024215F5C008E3F3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B677DDE24215F5C008E3F3C /* Main.storyboard */; };
 		9B677DE224215F60008E3F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B677DE124215F60008E3F3C /* Assets.xcassets */; };
 		9B677DE524215F60008E3F3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B677DE324215F60008E3F3C /* LaunchScreen.storyboard */; };
+		9B8C0C3F2429864D00417E66 /* AddNewVehicleRentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C0C3E2429864D00417E66 /* AddNewVehicleRentViewController.swift */; };
+		9B90F1FF242BEAEA000190CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B90F1FE242BEAE9000190CD /* LoginViewController.swift */; };
 		9B9E3C0424229165008682E7 /* DataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E3C0324229165008682E7 /* DataRepo.swift */; };
 		9B9E3C062422982E008682E7 /* Customers.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BFF4E2A2421850B0009AF2A /* Customers.json */; };
 		9B9E3C072422982E008682E7 /* Cars.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BFF4E2B2421850B0009AF2A /* Cars.json */; };
@@ -66,6 +75,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B0EE161242A98AA00019A52 /* addNewVehicleRentPickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewVehicleRentPickerViewTableViewCell.swift; sourceTree = "<group>"; };
+		9B3ECA96242553C2002DA852 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		9B3ECA98242557F4002DA852 /* AddNewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPersonViewController.swift; sourceTree = "<group>"; };
+		9B3ECA9A2425597C002DA852 /* addNewPersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewPersonTableViewCell.swift; sourceTree = "<group>"; };
+		9B50FA692423FAF20047E1A1 /* dependentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dependentDetailsViewController.swift; sourceTree = "<group>"; };
+		9B581DD02426820900160033 /* addNewPersonDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewPersonDateTableViewCell.swift; sourceTree = "<group>"; };
+		9B581DD2242687F100160033 /* addNewPersonPickerViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewPersonPickerViewTableViewCell.swift; sourceTree = "<group>"; };
 		9B677DD524215F5C008E3F3C /* Group2_W2020_MAD3115_FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group2_W2020_MAD3115_FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B677DD824215F5C008E3F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B677DDA24215F5C008E3F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +90,8 @@
 		9B677DE124215F60008E3F3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B677DE424215F60008E3F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B677DE624215F60008E3F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B8C0C3E2429864D00417E66 /* AddNewVehicleRentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVehicleRentViewController.swift; sourceTree = "<group>"; };
+		9B90F1FE242BEAE9000190CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9B9E3C0324229165008682E7 /* DataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepo.swift; sourceTree = "<group>"; };
 		9B9E3C102422B27F008682E7 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9B9E3C122422B364008682E7 /* UIStoryboard_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard_Extension.swift; sourceTree = "<group>"; };
@@ -136,6 +154,8 @@
 		9B677DD724215F5C008E3F3C /* Group2_W2020_MAD3115_FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				9B8C0C1B24294C7A00417E66 /* TableViewCells */,
+				9B8C0C1A24294C3E00417E66 /* ViewControllers */,
 				9BFF4E3F2421850B0009AF2A /* Enums */,
 				9BFF4E3D2421850B0009AF2A /* Exceptions */,
 				9BFF4E322421850B0009AF2A /* Extensions */,
@@ -145,7 +165,6 @@
 				9BFF4E372421850B0009AF2A /* VehicleRent.swift */,
 				9B677DD824215F5C008E3F3C /* AppDelegate.swift */,
 				9B677DDA24215F5C008E3F3C /* SceneDelegate.swift */,
-				9B677DDC24215F5C008E3F3C /* HomeViewController.swift */,
 				9B677DDE24215F5C008E3F3C /* Main.storyboard */,
 				9B677DE124215F60008E3F3C /* Assets.xcassets */,
 				9B677DE324215F60008E3F3C /* LaunchScreen.storyboard */,
@@ -153,9 +172,32 @@
 				9BFF4E452421850B0009AF2A /* ReadFile.swift */,
 				9BFF4E282421850B0009AF2A /* IDisplay.swift */,
 				9B9E3C0324229165008682E7 /* DataRepo.swift */,
-				9B9E3C102422B27F008682E7 /* ListViewController.swift */,
 			);
 			path = Group2_W2020_MAD3115_FinalProject;
+			sourceTree = "<group>";
+		};
+		9B8C0C1A24294C3E00417E66 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B3ECA98242557F4002DA852 /* AddNewPersonViewController.swift */,
+				9B677DDC24215F5C008E3F3C /* HomeViewController.swift */,
+				9B9E3C102422B27F008682E7 /* ListViewController.swift */,
+				9B50FA692423FAF20047E1A1 /* dependentDetailsViewController.swift */,
+				9B8C0C3E2429864D00417E66 /* AddNewVehicleRentViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9B8C0C1B24294C7A00417E66 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				9B3ECA9A2425597C002DA852 /* addNewPersonTableViewCell.swift */,
+				9B581DD02426820900160033 /* addNewPersonDateTableViewCell.swift */,
+				9B581DD2242687F100160033 /* addNewPersonPickerViewTableViewCell.swift */,
+				9B0EE161242A98AA00019A52 /* addNewVehicleRentPickerViewTableViewCell.swift */,
+				9B90F1FE242BEAE9000190CD /* LoginViewController.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		9BFF4E292421850B0009AF2A /* InputFiles */ = {
@@ -180,6 +222,7 @@
 				9BFF4E342421850B0009AF2A /* Double+Extension.swift */,
 				9BFF4E352421850B0009AF2A /* String+Extension.swift */,
 				9B9E3C122422B364008682E7 /* UIStoryboard_Extension.swift */,
+				9B3ECA96242553C2002DA852 /* UIAlertController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,23 +340,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B90F1FF242BEAEA000190CD /* LoginViewController.swift in Sources */,
 				9BFF4E4B2421852E0009AF2A /* EnumGender.swift in Sources */,
 				9BFF4E4C2421852E0009AF2A /* EnumFuel.swift in Sources */,
 				9B9E3C132422B364008682E7 /* UIStoryboard_Extension.swift in Sources */,
 				9BFF4E4D2421852E0009AF2A /* EnumRatePerKM.swift in Sources */,
+				9B3ECA99242557F4002DA852 /* AddNewPersonViewController.swift in Sources */,
 				9B9E3C0424229165008682E7 /* DataRepo.swift in Sources */,
 				9BFF4E4F2421852E0009AF2A /* EnumBaseRate.swift in Sources */,
 				9BFF4E502421852E0009AF2A /* Exceptions.swift in Sources */,
 				9BFF4E512421852E0009AF2A /* Date+Extension.swift in Sources */,
 				9BFF4E522421852E0009AF2A /* Double+Extension.swift in Sources */,
 				9B9E3C112422B27F008682E7 /* ListViewController.swift in Sources */,
+				9B8C0C3F2429864D00417E66 /* AddNewVehicleRentViewController.swift in Sources */,
 				9BFF4E532421852E0009AF2A /* String+Extension.swift in Sources */,
+				9B3ECA9B2425597C002DA852 /* addNewPersonTableViewCell.swift in Sources */,
+				9B581DD3242687F100160033 /* addNewPersonPickerViewTableViewCell.swift in Sources */,
+				9B50FA6A2423FAF20047E1A1 /* dependentDetailsViewController.swift in Sources */,
 				9BFF4E552421852E0009AF2A /* IDisplay.swift in Sources */,
 				9BFF4E562421852E0009AF2A /* Person.swift in Sources */,
 				9BFF4E572421852E0009AF2A /* customer.swift in Sources */,
 				9BFF4E582421852E0009AF2A /* Driver.swift in Sources */,
 				9BFF4E592421852E0009AF2A /* Owner.swift in Sources */,
 				9BFF4E5A2421852E0009AF2A /* ReadFile.swift in Sources */,
+				9B3ECA97242553C2002DA852 /* UIAlertController+Extension.swift in Sources */,
+				9B0EE162242A98AA00019A52 /* addNewVehicleRentPickerViewTableViewCell.swift in Sources */,
+				9B581DD12426820900160033 /* addNewPersonDateTableViewCell.swift in Sources */,
 				9BFF4E5B2421852E0009AF2A /* Bus.swift in Sources */,
 				9BFF4E5C2421852E0009AF2A /* Vehicle.swift in Sources */,
 				9BFF4E5D2421852E0009AF2A /* Car.swift in Sources */,

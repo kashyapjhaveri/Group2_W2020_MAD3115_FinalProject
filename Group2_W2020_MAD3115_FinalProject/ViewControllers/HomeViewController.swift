@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     private func fillChildSegment(){
         if segBaseClass.selectedSegmentIndex == 0 {
             segChlidClass.setTitle("Customers", forSegmentAt: 0);
-            segChlidClass.setTitle("Owenrs", forSegmentAt: 1);
+            segChlidClass.setTitle("Owners", forSegmentAt: 1);
             segChlidClass.setTitle("Drivers", forSegmentAt: 2);
         }
         else{
@@ -33,6 +33,10 @@ class HomeViewController: UIViewController {
         fillChildSegment();
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tblList.reloadData();
+    }
 
     @IBAction func segBaseValueChange(_ sender: UISegmentedControl) {
         fillChildSegment();
@@ -42,6 +46,37 @@ class HomeViewController: UIViewController {
     @IBAction func segChildValueChange(_ sender: UISegmentedControl) {
         tblList.reloadData();
     }
+    
+    @IBAction func btnAddClick(_ sender: Any) {
+        
+        if segBaseClass.selectedSegmentIndex == 0{
+        
+            let AddNewPersonViewController = UIStoryboard.getViewController(identifier: "AddNewPersonViewController") as! AddNewPersonViewController
+            AddNewPersonViewController.segPerson = self.segChlidClass.selectedSegmentIndex;
+            
+            
+            if self.segChlidClass.selectedSegmentIndex == 0{
+                AddNewPersonViewController.contentTitle = [Customer.getInputContentTitles()]
+                AddNewPersonViewController.vcTitle = "Add New Customer";
+            }
+            else if self.segChlidClass.selectedSegmentIndex == 1{
+                AddNewPersonViewController.contentTitle = [Owner.getInputContentTitles()]
+                AddNewPersonViewController.vcTitle = "Add New Owner";
+
+            }
+            else{
+                AddNewPersonViewController.contentTitle = [Driver.getInputContentTitles()]
+                AddNewPersonViewController.vcTitle = "Add New Driver";
+            }
+            
+            self.navigationController?.pushViewController(AddNewPersonViewController, animated: true);
+        }
+    }
+    
+    @IBAction func btnLogoutClick(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil);
+    }
+    
 }
 
 extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
@@ -81,14 +116,14 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
                 
                 let customer = dataRepo.getAllCustomers()[indexPath.row];
                 
-                cell.textLabel?.text = customer.fullName;
+                cell.textLabel?.text = "\(customer.fullName) : \(customer.getListOfVehicleRented().count)";
                 cell.detailTextLabel?.text = "Customer";
             }
             else if segChlidClass.selectedSegmentIndex == 1{
                 
                 let owner = dataRepo.getAllOwners()[indexPath.row]
             
-                cell.textLabel?.text = owner.fullName;
+                cell.textLabel?.text = "\(owner.fullName) : \(owner.getListOfVehicleOwn().count)";
                 cell.detailTextLabel?.text = "Owner";
             }
             else if segChlidClass.selectedSegmentIndex == 2{
@@ -125,89 +160,44 @@ extension HomeViewController:UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var contentTitle:[String] = [String]();
-        var contentToDisplay:[String] = [String]();
         
-        var nextVcTitle:String = String();
+        let ListViewVC = UIStoryboard.getViewController(identifier: "ListViewController") as! ListViewController;
         let dataRepo = DataRepo.getInstance();
         
        if segBaseClass.selectedSegmentIndex == 0 {
             if  segChlidClass.selectedSegmentIndex == 0 {
                 let customer = dataRepo.getAllCustomers()[indexPath.row];
-                
-                contentTitle = ["Customer ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","Address","City"];
-                contentToDisplay = ["\(customer.id)",customer.fullName,"\(customer.gender)",customer.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(customer.age) Years",customer.mobileNumber,customer.email,customer.address,customer.city]
-                
-                
-                nextVcTitle = "Customer's Details";
+                ListViewVC.dataObject = customer;
             }
             else if segChlidClass.selectedSegmentIndex == 1{
                 
                 let owner = dataRepo.getAllOwners()[indexPath.row]
-                
-                contentTitle = ["Owenr ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","Company Title","Business No","Website"];
-                contentToDisplay = ["\(owner.id)",owner.fullName,"\(owner.gender)",owner.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(owner.age) Years",owner.mobileNumber,owner.email,owner.companyTitle,owner.businessNumber,owner.website];
-                
-                nextVcTitle = "Owner's Details";
-                
+                ListViewVC.dataObject = owner;
             }
             else if segChlidClass.selectedSegmentIndex == 2{
                 let driver = dataRepo.getAllDrivers()[indexPath.row]
-                
-                contentTitle = ["Driver ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","DL Number","History Cleared?","Salary"];
-                contentToDisplay = ["\(driver.id)",driver.fullName,"\(driver.gender)",driver.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(driver.age) Years",driver.mobileNumber,driver.email,driver.drivingLicenceNumber,"\(driver.isHistoryCleared)",driver.salary.formattedCurrency()];
-               
-                nextVcTitle = "Driver's Details";
+                ListViewVC.dataObject = driver;
             }
         }
         else if segBaseClass.selectedSegmentIndex == 1{
             if  segChlidClass.selectedSegmentIndex == 0 {
                 let bus = dataRepo.getAllBuses()[indexPath.row];
-                
-                contentTitle = ["VIN","Description","Manufacturer","Self Drive?","Insured?","No of seat","Fuel","Base rate","Rate/Km","Vehicle Type","Type of bus","Accessibility Available?","Wifi Available?"];
-                contentToDisplay = [bus.vehicleIdentificationNumber,bus.vehicleDescription,bus.vehicleManufacturerName,"\(bus.isSelfDrive)","\(bus.isInsured)","\(bus.noOfSeat)","\(bus.fuelType)",bus.baseRate.rawValue.formattedCurrency(),bus.ratePerKm.rawValue.formattedCurrency(),bus.vehicleType,bus.typeOfBus,"\(bus.isAccessibilityAvailable)","\(bus.isWifiAvailable)"];
-                
-                if bus.isInsured{
-                    contentTitle.append("Insurance Provider")
-                    contentToDisplay.append(bus.insuranceProviderName)
-                }
-                    
-                nextVcTitle = "Bus's Details";
+                ListViewVC.dataObject = bus;
             }
             else if segChlidClass.selectedSegmentIndex == 1{
                 
                 let motorCycle = dataRepo.getAllMotorCycles()[indexPath.row]
-                contentTitle = ["VIN","Description","Manufacturer","Self Drive?","Insured?","No of seat","Fuel","Base rate","Rate/Km","Vehicle Type","Max Top Speed","Milage"];
-                contentToDisplay = [motorCycle.vehicleIdentificationNumber,motorCycle.vehicleDescription,motorCycle.vehicleManufacturerName,"\(motorCycle.isSelfDrive)","\(motorCycle.isInsured)","\(motorCycle.noOfSeat)","\(motorCycle.fuelType)",motorCycle.baseRate.rawValue.formattedCurrency(),motorCycle.ratePerKm.rawValue.formattedCurrency(),motorCycle.vehicleType,"\(motorCycle.maxTopSpeed)","\(motorCycle.mileage)"];
-                
-                if motorCycle.isInsured{
-                    contentTitle.append("Insurance Provider")
-                    contentToDisplay.append(motorCycle.insuranceProviderName)
-                }
-                
-                 nextVcTitle = "MotorCycle's Details";
+                ListViewVC.dataObject = motorCycle;
             }
             else if segChlidClass.selectedSegmentIndex == 2{
                 let car = dataRepo.getAllCars()[indexPath.row]
-                
-                contentTitle = ["VIN","Description","Manufacturer","Self Drive?","Insured?","No of seat","Fuel","Base rate","Rate/Km","Vehicle Type","Car Type","Color"];
-                contentToDisplay = [car.vehicleIdentificationNumber,car.vehicleDescription,car.vehicleManufacturerName,"\(car.isSelfDrive)","\(car.isInsured)","\(car.noOfSeat)","\(car.fuelType)",car.baseRate.rawValue.formattedCurrency(),car.ratePerKm.rawValue.formattedCurrency(),car.vehicleType,car.carType,car.carColour];
-                
-                if car.isInsured{
-                    contentTitle.append("Insurance Provider")
-                    contentToDisplay.append(car.insuranceProviderName)
-                }
-                
-                 nextVcTitle = "Car's Details";
+                ListViewVC.dataObject = car;
             }
         }
         
-        let ListViewVC = UIStoryboard.getViewController(identifier: "ListViewController") as! ListViewController;
-        
-        ListViewVC.contentTitle = contentTitle;
-        ListViewVC.contentToDisplay = contentToDisplay;
-        ListViewVC.viewControllerTitle = nextVcTitle;
-        
+        ListViewVC.baseSegIndex = segBaseClass.selectedSegmentIndex;
+        ListViewVC.childSegIndex = segChlidClass.selectedSegmentIndex;
+
         navigationController?.pushViewController(ListViewVC, animated: true);
         
     }

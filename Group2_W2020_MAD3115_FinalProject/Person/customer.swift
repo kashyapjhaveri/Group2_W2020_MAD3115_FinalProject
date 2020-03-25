@@ -10,6 +10,7 @@ import Foundation
 
 class Customer: Person
 {
+    
     var id           : Int
     var firstname    : String
     var lastname     : String
@@ -48,9 +49,22 @@ class Customer: Person
         self.listOfVehicleRented.updateValue(tempVehicle, forKey: tempVehicle.vehicleRented.vehicleIdentificationNumber);
     }
     
-    func getListOfVehicleRented() -> [String:VehicleRent] {
-        return self.listOfVehicleRented;
+    func getListOfVehicleRented() -> [VehicleRent] {
+        return Array(self.listOfVehicleRented.values);
     }
+    
+    func getContentTitles() -> [String] {
+        return ["Customer ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","User Name","Password","Address","City"];
+    }
+    
+    static func getInputContentTitles() -> [String] {
+        return ["Customer ID","First Name","Last Name","Gender","BirthDate","Mobile No","Email","User Name","Password","Address","City"];
+    }
+    
+    func getContentToDisplay() -> [String] {
+        return ["\(self.id)",self.fullName,"\(self.gender)",self.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(self.age) Years",self.mobileNumber,self.email,self.username,self.password.decryptPassword(),self.address,self.city]
+    }
+    
     
      func Display()
      {

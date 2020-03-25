@@ -12,6 +12,13 @@
         "endDate":"15/01/2020",
         "noOfKmDriven":50,
         "vehicleRented":"WDDGF4HB4CA873474"
+    },
+    {
+        "customerId":3,
+        "startDate":"10/02/2020",
+        "endDate":"15/02/2020",
+        "noOfKmDriven":50,
+        "vehicleRented":"1D7CW3BK9AS519197"
     },{
         "customerId":4,
         "startDate":"20/01/2020",

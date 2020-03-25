@@ -25,4 +25,8 @@ protocol Person : IDisplay
     var password     : String{get set}
         
     func Display()
+    
+    func getContentTitles() -> [String]
+    
+    func getContentToDisplay() -> [String]
 }

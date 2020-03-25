@@ -50,6 +50,18 @@ class Driver : Person
     }
     
     
+    func getContentTitles() -> [String] {
+        return ["Driver ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","User Name","Password","DL Number","History Cleared?","Salary"]
+    }
+    
+    static func getInputContentTitles() -> [String] {
+        return ["Driver ID","First Name","Last Name","Gender","BirthDate","Mobile No","Email","User Name","Password","DL Number","History Cleared?","Salary"]
+    }
+    
+    func getContentToDisplay() -> [String] {
+        return ["\(self.id)",self.fullName,"\(self.gender)",self.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(self.age) Years",self.mobileNumber,self.email,self.username,self.password.decryptPassword(),self.drivingLicenceNumber,"\(self.isHistoryCleared)",self.salary.formattedCurrency()]
+    }
+    
     func Display()
     {
         print("\t\tID                            : \(self.id)")

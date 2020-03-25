@@ -25,9 +25,14 @@ class VehicleRent: IDisplay {
         calculateBill();
     }
     
+    static func getInputContentTitles() -> [String] {
+        return ["Vehicle","Start Date","End Date","No of Km Driven"];
+    }
+    
     private func calculateBill() {
         self.totalBill = (vehicleRented.baseRate.rawValue * Double(noOfDays)) + (vehicleRented.ratePerKm.rawValue * Double(noOfKmDriven));
     }
+    
     
     func Display() {
         print("\tStart Date:-     : \(self.startDate.getFormattedDate(dateFormat: "dd-MMM-yyyy"))");

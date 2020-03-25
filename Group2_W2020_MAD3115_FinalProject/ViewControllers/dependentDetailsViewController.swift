@@ -1,23 +1,23 @@
 //
-//  ListViewController.swift
+//  dependentDetailsViewController.swift
 //  Group2_W2020_MAD3115_FinalProject
 //
-//  Created by Kashyap Jhaveri on 2020-03-18.
+//  Created by Kashyap Jhaveri on 2020-03-19.
 //  Copyright © 2020 Kashyap Jhaveri. All rights reserved.
 //
 
 import UIKit
 
-class ListViewController: UIViewController {
+class dependentDetailsViewController: UIViewController {
     
-    var contentTitle:[String]?;
-    var contentToDisplay:[String]?;
-    var viewControllerTitle:String?;
-    
-    @IBOutlet weak var lblTitle: UILabel!
+    var nextVcTitle:String?;
+    var contentTitle:[[String]]?;
+    var contentHeaderTitle:[String]?;
+    var contentToDisplay:[[String]]?;
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblTitle.text = viewControllerTitle;
+        navigationItem.title = nextVcTitle!;
         // Do any additional setup after loading the view.
     }
     
@@ -34,31 +34,28 @@ class ListViewController: UIViewController {
 
 }
 
-extension ListViewController: UITableViewDelegate, UITableViewDataSource{
+extension dependentDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return contentHeaderTitle!.count;
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "Personal Information"
-        }
-        return "";
+        return contentHeaderTitle![section];
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentToDisplay!.count;
+        return contentTitle![section].count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath);
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dependentDetailsTableViewCell", for: indexPath);
         
-        cell.textLabel?.text = contentTitle![indexPath.row];
-        cell.detailTextLabel?.text = contentToDisplay![indexPath.row];
+        cell.textLabel?.text = contentTitle![indexPath.section][indexPath.row];
+        cell.detailTextLabel?.text = contentToDisplay![indexPath.section][indexPath.row];
+        
         return cell;
     }
-    
     
     
 }

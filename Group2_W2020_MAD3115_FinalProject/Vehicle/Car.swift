@@ -50,6 +50,14 @@ class Car : Vehicle
         self.insuranceProviderName = insuranceProviderName;
     }
     
+    func getContentTitles() -> [String] {
+        return ["VIN","Description","Manufacturer","Self Drive?","Insured?","No of seat","Fuel","Base rate","Rate/Km","Vehicle Type","Car Type","Color"];
+    }
+    
+    func getContentToDisplay() -> [String] {
+        return [self.vehicleIdentificationNumber,self.vehicleDescription,self.vehicleManufacturerName,"\(self.isSelfDrive)","\(self.isInsured)","\(self.noOfSeat)","\(self.fuelType)",self.baseRate.rawValue.formattedCurrency(),self.ratePerKm.rawValue.formattedCurrency(),self.vehicleType,self.carType,self.carColour]
+    }
+    
     func Display()
     {
         print("Vehicle Identification Number : \(self.vehicleIdentificationNumber)")

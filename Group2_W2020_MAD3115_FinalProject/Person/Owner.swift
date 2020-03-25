@@ -51,8 +51,21 @@ class Owner : Person
         self.listOfVehicleOwned.updateValue(vehicle, forKey: vehicle.vehicleIdentificationNumber);
     }
     
-    func getListOfVehicleOwn() ->  [String:Vehicle] {
-        return self.listOfVehicleOwned;
+    func getListOfVehicleOwn() ->  [Vehicle] {
+        return Array(self.listOfVehicleOwned.values);
+    }
+    
+    
+    func getContentTitles() -> [String] {
+        return ["Owenr ID","Full Name","Gender","BirthDate","Age","Mobile No","Email","User Name","Password","Company Title","Business No","Website"];
+    }
+    
+    static func getInputContentTitles() -> [String] {
+        return ["Owner ID","First Name","Last Name","Gender","BirthDate","Mobile No","Email","User Name","Password","Company Title","Business No","Website"];
+    }
+    
+    func getContentToDisplay() -> [String] {
+        return ["\(self.id)",self.fullName,"\(self.gender)",self.birthDate.getFormattedDate(dateFormat: "dd-MMM-yyy"),"\(self.age) Years",self.mobileNumber,self.email,self.username,self.password.decryptPassword(),self.companyTitle,self.businessNumber,self.website]
     }
     
     func Display()
